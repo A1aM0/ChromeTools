@@ -1,0 +1,24 @@
+{
+  "manifest_version": 3,
+  "name": "ChromeTools(by A1aM0)",
+  "version": "1.0.0",
+  "description": "A1aM0 的个人工具集",
+  "icons": {
+    "16": "Assets/Icon/icon@1x.png",
+    "32": "Assets/Icon/icon@2x.png",
+    "48": "Assets/Icon/icon@3x.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://*/*"],
+      "js": ["src/main.js"]
+    }
+  ],
+  "background":{
+    "service_worker": "src/contextMenu/configContextMenu.js"
+  },
+  "permissions": [
+    "activeTab",
+    "contextMenus"
+  ]
+}
