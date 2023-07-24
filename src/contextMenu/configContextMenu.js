@@ -29,6 +29,16 @@ chrome.contextMenus.create({
     console.log("创建成功")
 });
 
+chrome.contextMenus.create({
+    type: 'normal',
+    title: 'Copy Image Base64 Encoded as Markdown Format',
+    contexts: ['image'],
+    id: 'copy_image_base64_encoded',
+    parentId: 'Menu_1'
+}, function() {
+    console.log("创建成功")
+});
+
 chrome.contextMenus.onClicked.addListener(function(item, tab) {
 	chrome.tabs.sendMessage(tab.id, item, function() {
 		console.log(arguments, chrome.runtime.lastError);
