@@ -1,7 +1,17 @@
+
 async function copyTextToClipboard(text) {
-	navigator.clipboard.writeText(text)
-		.then(() => { alert(`已复制到剪贴板`) })
-		.catch((error) => { alert(`复制失败! ${error}`) })
+	let aux = document.createElement("input"); 
+    aux.setAttribute("value", text); 
+    document.body.appendChild(aux); 
+    aux.select();
+    let result = document.execCommand("copy"); 
+    document.body.removeChild(aux);
+	
+    if (result) {
+        alert("复制成功");
+    } else{
+        alert('复制失败');
+    }
 }
 
 async function onCopyAsMarkdown(data){
